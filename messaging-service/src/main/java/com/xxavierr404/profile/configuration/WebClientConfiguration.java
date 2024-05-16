@@ -1,0 +1,21 @@
+package com.xxavierr404.profile.configuration;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.client.WebClient;
+
+@Configuration
+public class WebClientConfiguration {
+    @Bean
+    @Qualifier("chatsWebClient")
+    public WebClient usersWebClient() {
+        return WebClient.create("http://chats:8080");
+    }
+
+    @Bean
+    @Qualifier("statisticsWebClient")
+    public WebClient statisticsWebClient() {
+        return WebClient.create("http://statistics:8080");
+    }
+}
