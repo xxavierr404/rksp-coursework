@@ -1,0 +1,91 @@
+version: "3"
+services:
+  pg:
+    image: "postgres"
+    container_name: pg
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: work
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./pg_data:/var/lib/postgresql/data"
+    networks:
+      - common
+  auth:
+    restart: always
+    build:
+      context: auth-server
+    ports:
+      - "5551:8080"
+    environment:
+      USER_DB_HOST: "pg:5432"
+    depends_on:
+      - pg
+    networks:
+      - common
+  profiles:
+    restart: always
+    build:
+      context: profile-service
+    ports:
+      - "5552:8080"
+    environment:
+      USER_DB_HOST: "pg:5432"
+    depends_on:
+      - pg
+    networks:
+      - common
+  chats:
+    restart: always
+    build:
+      context: chat-service
+    ports:
+      - "5553:8080"
+    environment:
+      USER_DB_HOST: "pg:5432"
+    depends_on:
+      - pg
+    networks:
+      - common
+  statistics:
+    restart: always
+    build:
+      context: statistics-service
+    ports:
+      - "5554:8080"
+    environment:
+      USER_DB_HOST: "pg:5432"
+    depends_on:
+      - pg
+    networks:
+      - common
+  messages:
+    restart: always
+    build:
+      context: messaging-service
+    ports:
+      - "5555:8080"
+    environment:
+      USER_DB_HOST: "pg:5432"
+    depends_on:
+      - pg
+    networks:
+      - common
+  client:
+    restart: always
+    build: client
+    ports:
+      - "80:3000"
+    depends_on:
+      - auth
+      - chats
+      - messages
+      - profiles
+      - statistics
+    networks:
+      - common
+
+networks:
+  common:
