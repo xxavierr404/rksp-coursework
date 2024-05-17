@@ -75,7 +75,10 @@ services:
       - common
   client:
     restart: always
-    build: client
+    build:
+      context: client
+      args:
+        REACT_APP_SERVER_IP: ${REACT_APP_SERVER_IP}
     ports:
       - "80:3000"
     depends_on:
@@ -86,8 +89,6 @@ services:
       - statistics
     networks:
       - common
-    environment:
-      SERVER_IP: ${SERVER_IP}
 
 networks:
   common:

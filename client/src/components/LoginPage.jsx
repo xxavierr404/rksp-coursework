@@ -21,7 +21,7 @@ const LoginPage = (props) => {
         };
 
         axios.post(
-            `http://${process.env.SERVER_IP}:5551/api/v1/login`,
+            `http://${process.env.REACT_APP_SERVER_IP}:5551/api/v1/login`,
             loginRequest
         )
             .catch(resp => {
