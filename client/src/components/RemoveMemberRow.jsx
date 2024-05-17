@@ -12,7 +12,7 @@ const RemoveMemberRow = (props) => {
 
     const updateProfile = async () => {
         await axios.get(
-            `http://${process.env.SERVER_IP}:5552/api/v1/user-profile/${props.id}`,
+            `http://${process.env.REACT_APP_SERVER_IP}:5552/api/v1/user-profile/${props.id}`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`
@@ -31,7 +31,7 @@ const RemoveMemberRow = (props) => {
 
     const kick = async () => {
         await axios.delete(
-            `http://${process.env.SERVER_IP}:5553/api/v1/chat/${props.chatId}/${props.id}`,
+            `http://${process.env.REACT_APP_SERVER_IP}:5553/api/v1/chat/${props.chatId}/${props.id}`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`

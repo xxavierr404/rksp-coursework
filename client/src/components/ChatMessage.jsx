@@ -13,7 +13,7 @@ const ChatMessage = (props) => {
 
     const updateAuthorName = async () => {
         await axios.get(
-            `http://${process.env.SERVER_IP}:5552/api/v1/user-profile/${props.author}`,
+            `http://${process.env.REACT_APP_SERVER_IP}:5552/api/v1/user-profile/${props.author}`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`

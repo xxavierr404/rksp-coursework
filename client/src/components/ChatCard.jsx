@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 const ChatCard = (props) => {
     const join = async () => {
         axios.post(
-            `http://${process.env.SERVER_IP}:5553/api/v1/chat/${props.chatId}/${props.userId}?isManager=false`,
+            `http://${process.env.REACT_APP_SERVER_IP}:5553/api/v1/chat/${props.chatId}/${props.userId}?isManager=false`,
             {},
             {
                 headers: {
