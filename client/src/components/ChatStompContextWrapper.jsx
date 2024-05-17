@@ -16,7 +16,7 @@ const ChatStompContextWrapper = () => {
     };
 
     return (
-        <StompSessionProvider url={"ws://localhost:5555/api/v1/messaging"} connectHeaders={authHeader}>
+        <StompSessionProvider url={`ws://${process.env.SERVER_IP}:5555/api/v1/messaging`} connectHeaders={authHeader}>
             <Chat></Chat>
         </StompSessionProvider>
     );

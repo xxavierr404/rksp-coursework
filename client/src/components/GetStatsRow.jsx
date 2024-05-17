@@ -16,7 +16,7 @@ const AddMemberRow = (props) => {
 
     const updateProfile = async () => {
         await axios.get(
-            `http://localhost:5552/api/v1/user-profile/${props.id}`,
+            `http://${process.env.SERVER_IP}:5552/api/v1/user-profile/${props.id}`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`
@@ -35,7 +35,7 @@ const AddMemberRow = (props) => {
 
     const updateStatInfo = async () => {
         await axios.get(
-            `http://localhost:5554/api/v1/chat-time?chatId=${props.chatId}&userId=${props.id}`,
+            `http://${process.env.SERVER_IP}:5554/api/v1/chat-time?chatId=${props.chatId}&userId=${props.id}`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`
@@ -55,7 +55,7 @@ const AddMemberRow = (props) => {
                 }
             });
         await axios.get(
-            `http://localhost:5554/api/v1/messages?chatId=${props.chatId}&userId=${props.id}`,
+            `http://${process.env.SERVER_IP}:5554/api/v1/messages?chatId=${props.chatId}&userId=${props.id}`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`

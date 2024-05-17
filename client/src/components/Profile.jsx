@@ -33,8 +33,8 @@ const Profile = () => {
 
     const getProfileInfo = (id) => {
         let url = id
-            ? `http://localhost:5552/api/v1/user-profile/${id}`
-            : 'http://localhost:5552/api/v1/user-profile'
+            ? `http://${process.env.SERVER_IP}:5552/api/v1/user-profile/${id}`
+            : `http://${process.env.SERVER_IP}:5552/api/v1/user-profile`
         return axios.get(
             url,
             {
@@ -55,7 +55,7 @@ const Profile = () => {
 
     const updateProfileInfo = async () => {
         await axios.put(
-            "http://localhost:5552/api/v1/user-profile",
+            `http://${process.env.SERVER_IP}:5552/api/v1/user-profile`,
             {
                 description: newDescription,
                 position: newPosition

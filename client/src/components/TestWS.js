@@ -6,7 +6,7 @@ const TestWs = () => {
 
     useEffect(() => {
         const test = async () => {
-            let socket = new WebSocket('ws://localhost:5555/api/v1/messaging');
+            let socket = new WebSocket(`ws://${process.env.SERVER_IP}:5555/api/v1/messaging`);
             let token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhYWFhIiwiZXhwIjoxNzEzMDQzODMzLCJpZCI6MSwicm9sZSI6Ik9SR0FOSVpBVElPTiJ9.-BWmORY7MokKnsh5ieoBpOBHdAkGJljfpUzD9WItSGS7NjvoX-z0RtQFyeoye_Q4I442WNDDqvAf4_mh_JDkLA";
             let authHeader = {
                 "X-Authorization": token

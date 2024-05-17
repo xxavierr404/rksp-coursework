@@ -86,6 +86,8 @@ services:
       - statistics
     networks:
       - common
+    environment:
+      SERVER_IP: ${SERVER_IP}
 
 networks:
   common:

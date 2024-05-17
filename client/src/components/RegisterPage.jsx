@@ -24,7 +24,7 @@ const RegisterPage = (props) => {
         };
 
         axios.post(
-            "http://localhost:5551/api/v1/register",
+            `http://${process.env.SERVER_IP}:5551/api/v1/register`,
             registerRequest
         )
             .catch(resp => {

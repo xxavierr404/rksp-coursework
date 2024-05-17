@@ -31,7 +31,7 @@ const ChatList = (props) => {
 
     const updateChatList = async () => {
         axios.get(
-            "http://localhost:5553/api/v1/chats",
+            `http://${process.env.SERVER_IP}:5553/api/v1/chats`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`
@@ -54,7 +54,7 @@ const ChatList = (props) => {
 
     const updatePotentialChatList = async () => {
         axios.get(
-            "http://localhost:5553/api/v1/chats/available",
+            `http://${process.env.SERVER_IP}:5553/api/v1/chats/available`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`
@@ -77,7 +77,7 @@ const ChatList = (props) => {
 
     const createChat = async () => {
         axios.post(
-            "http://localhost:5553/api/v1/chat",
+            `http://${process.env.SERVER_IP}:5553/api/v1/chat`,
             {
                 name: newChatName,
                 description: newChatDescription,
@@ -106,7 +106,7 @@ const ChatList = (props) => {
 
     const updateUserId = () => {
         return axios.get(
-            'http://localhost:5552/api/v1/user-profile',
+            `http://${process.env.SERVER_IP}:5552/api/v1/user-profile`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`

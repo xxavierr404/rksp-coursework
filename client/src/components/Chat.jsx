@@ -64,7 +64,7 @@ const Chat = () => {
 
     const updateManagerRights = async () => {
         await axios.get(
-            `http://localhost:5553/api/v1/chat/${id}/${userId}/check-rights`,
+            `http://${process.env.SERVER_IP}:5553/api/v1/chat/${id}/${userId}/check-rights`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`
@@ -89,7 +89,7 @@ const Chat = () => {
 
     const getChatInfo = async () => {
         await axios.get(
-            `http://localhost:5552/api/v1/user-profile`,
+            `http://${process.env.SERVER_IP}:5552/api/v1/user-profile`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`
@@ -107,7 +107,7 @@ const Chat = () => {
                 setUserId(resp.data.id);
             });
         await axios.get(
-            `http://localhost:5553/api/v1/chat/${id}`,
+            `http://${process.env.SERVER_IP}:5553/api/v1/chat/${id}`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`
@@ -129,7 +129,7 @@ const Chat = () => {
                 }
             });
         await axios.get(
-            `http://localhost:5555/api/v1/messages/history/${id}`,
+            `http://${process.env.SERVER_IP}:5555/api/v1/messages/history/${id}`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`
@@ -154,7 +154,7 @@ const Chat = () => {
 
     const updatePotentialMembers = async () => {
         axios.get(
-            `http://localhost:5553/api/v1/chat/${id}/potential-members`,
+            `http://${process.env.SERVER_IP}:5553/api/v1/chat/${id}/potential-members`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`

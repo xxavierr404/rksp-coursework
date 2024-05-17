@@ -20,7 +20,7 @@ const RegisterEmployee = (props) => {
 
     const getProfileInfo = async () => {
         return axios.get(
-            'http://localhost:5552/api/v1/user-profile',
+            `http://${process.env.SERVER_IP}:5552/api/v1/user-profile`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`
@@ -54,7 +54,7 @@ const RegisterEmployee = (props) => {
         };
 
         axios.post(
-            "http://localhost:5551/api/v1/register",
+            `http://${process.env.SERVER_IP}:5551/api/v1/register`,
             registerRequest
         )
             .catch(resp => {

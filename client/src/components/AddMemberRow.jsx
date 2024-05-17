@@ -13,7 +13,7 @@ const AddMemberRow = (props) => {
 
     const updateProfile = async () => {
         await axios.get(
-            `http://localhost:5552/api/v1/user-profile/${props.id}`,
+            `http://${process.env.SERVER_IP}:5552/api/v1/user-profile/${props.id}`,
             {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("workus-tkn")}`
@@ -32,7 +32,7 @@ const AddMemberRow = (props) => {
 
     const invite = async () => {
         await axios.post(
-            `http://localhost:5553/api/v1/chat/${props.chatId}/${props.id}?isManager=${isManager}`,
+            `http://${process.env.SERVER_IP}:5553/api/v1/chat/${props.chatId}/${props.id}?isManager=${isManager}`,
             {},
             {
                 headers: {
