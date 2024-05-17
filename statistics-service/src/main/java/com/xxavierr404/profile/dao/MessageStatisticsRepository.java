@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 public interface MessageStatisticsRepository extends CrudRepository<MessageStatistics, Long> {
     List<MessageStatistics> findByUserIdAndChatIdAndSendingTimeBetween(
-            Long chatId,
             Long userId,
+            Long chatId,
             Instant start,
             Instant end
     );

@@ -60,8 +60,8 @@ public class StatisticsService {
         validateRights(chatId, requesterId);
         var now = Instant.now();
         var stats = chatTimeStatisticsRepository.findByUserIdAndChatIdAndCreationTimeBetween(
-                chatId,
                 userId,
+                chatId,
                 now.minus(10, ChronoUnit.DAYS),
                 now
         );
@@ -93,8 +93,8 @@ public class StatisticsService {
         validateRights(chatId, requesterId);
         var now = Instant.now();
         var stats = messageStatisticsRepository.findByUserIdAndChatIdAndSendingTimeBetween(
-                chatId,
                 userId,
+                chatId,
                 now.minus(10, ChronoUnit.DAYS),
                 now
         );
