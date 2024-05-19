@@ -2,9 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {Button, Col, Form, Modal, Row} from "react-bootstrap";
 import axios from "axios";
 import Cookies from "js-cookie";
-import RemoveMemberRow from "./RemoveMemberRow";
 
-const AddMemberRow = (props) => {
+const GetStatsRow = (props) => {
     const [profile, setProfile] = useState("");
     const [chatTimeStats, setChatTimeStats] = useState({});
     const [messageStats, setMessageStats] = useState({});
@@ -146,4 +145,4 @@ const AddMemberRow = (props) => {
     );
 };
 
-export default AddMemberRow;
+export default GetStatsRow;

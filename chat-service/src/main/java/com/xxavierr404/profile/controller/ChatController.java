@@ -70,7 +70,7 @@ public class ChatController {
     }
 
     @GetMapping("/chat/{chatId}/check-presence")
-    public ResponseEntity<Boolean> addMember(
+    public ResponseEntity<Boolean> checkPresence(
             @PathVariable Long chatId,
             @AuthenticationPrincipal UserAuthContext userAuthContext
     ) {
@@ -144,7 +144,7 @@ public class ChatController {
     }
 
     @DeleteMapping("/chat/{chatId}/{userId}")
-    public ResponseEntity<Void> addMember(
+    public ResponseEntity<Void> deleteMember(
             @PathVariable Long chatId,
             @PathVariable Long userId,
             @AuthenticationPrincipal UserAuthContext authContext

@@ -68,18 +68,6 @@ public class AuthController {
         );
     }
 
-/*    @PostMapping("token")
-    public ResponseEntity<JwtResponse> getNewAccessToken(@RequestBody RefreshJwtRequest request) {
-        final JwtResponse token = authService.getAccessToken(request.getRefreshToken());
-        return ResponseEntity.ok(token);
-    }
-
-    @PostMapping("refresh")
-    public ResponseEntity<JwtResponse> getNewRefreshToken(@RequestBody RefreshJwtRequest request) {
-        final JwtResponse token = authService.refresh(request.getRefreshToken());
-        return ResponseEntity.ok(token);
-    }*/
-
     @ExceptionHandler({IllegalArgumentException.class})
     public ResponseEntity<String> errorHandler(IllegalArgumentException exception) {
         return ResponseEntity.badRequest().body(exception.getMessage());
