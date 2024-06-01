@@ -3,7 +3,7 @@ import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import LogoLink from "./LogoLink";
 import Cookies from "js-cookie";
 import axios from "axios";
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 const Profile = () => {
     const [profile, setProfile] = useState({});
@@ -43,9 +43,12 @@ const Profile = () => {
                 }
             }
         )
-            .catch(resp => {
+            .catch(async resp => {
                 if (resp.status !== 200) {
                     console.log("Something bad happened");
+                    if (!id) {
+                        await logout();
+                    }
                     return null;
                 }
                 return resp;
